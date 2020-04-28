@@ -10,18 +10,35 @@ public class WhenCreatingANewDog {
     public void it_should_have_a_name() throws Exception{
 
         LocalDateTime birthday = LocalDateTime.now();
-        Dog devii = new Dog("Devii","Staffie", birthday);
+        Dog devii = Dog.called("Devii")
+                        .ofBreed("Labrador")
+                        .withDateOfBirth(birthday);
 
         Assert.assertEquals("Devii",devii.getName());
-        Assert.assertEquals("Staffie",devii.getBreed());
+        Assert.assertEquals("Labrador",devii.getBreed());
         Assert.assertEquals(birthday,devii.getDateOfBirth());
     }
 
     @Test
     public void it_should_have_an_optional_fav_food() throws Exception{
         LocalDateTime birthday = LocalDateTime.now();
-        Dog devii = new Dog("Devii","Staffie", birthday, "pizza");
+        Dog devii = Dog.called("Devii")
+                .ofBreed("Labrador")
+                .withOptionalFavFood("pizza")
+                .withDateOfBirth(birthday);
 
-        Assert.assertEquals("Devii",devii.getFavFood());
+        Assert.assertEquals("pizza",devii.getFavFood());
+    }
+
+    @Test
+    public void a_dog_can_have_an_optional_favourite_toy(){
+        LocalDateTime birthday = LocalDateTime.now();
+        Dog devii = Dog.called("Devii")
+                .ofBreed("Labrador")
+                .withOptionalFavToy("Bonex")
+                .withDateOfBirth(birthday);
+
+        Assert.assertEquals("Bonex",devii.getToy());
+
     }
 }
