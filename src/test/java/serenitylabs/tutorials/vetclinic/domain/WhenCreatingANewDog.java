@@ -9,12 +9,9 @@ import java.time.LocalDateTime;
 public class WhenCreatingANewDog {
     @Test
     public void it_should_have_a_name() throws Exception{
-        Dog devii = new Dog();
-        LocalDateTime birthday = LocalDateTime.now();
 
-        devii.setName("Devii");
-        devii.setBreed("Staffie");
-        devii.setDateOfBirth(birthday);
+        LocalDateTime birthday = LocalDateTime.now();
+        Dog devii = new Dog("Devii","Staffie", birthday);
 
         Assert.assertEquals("Devii",devii.getName());
         Assert.assertEquals("Staffie",devii.getBreed());
