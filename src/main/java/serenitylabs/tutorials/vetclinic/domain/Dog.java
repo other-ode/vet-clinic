@@ -37,12 +37,16 @@ public class Dog {
     }
 
     // New Dog Builder Class
-    public static DogBuilder called(String name){
+    public static WithBreed called(String name){
         return new DogBuilder(name);
     }
 
+    interface WithBreed {
+        DogBuilder ofBreed(String breed);
+    }
 
-    public static class DogBuilder {
+    public static class DogBuilder implements WithBreed {
+
         private String name;
         private String breed;
         private LocalDateTime dateOfBirth;
