@@ -4,6 +4,10 @@ import org.junit.Test;
 
 import org.junit.Assert;
 
+
+import static org.hamcrest.Matchers.greaterThan;
+import static org.junit.Assert.assertThat;
+
 public class WhenCalculatingTotalPrices {
 
     @Test
@@ -16,5 +20,7 @@ public class WhenCalculatingTotalPrices {
 
         // THEN
         Assert.assertEquals(120, totalPrice);
+        assertThat(totalPrice, greaterThan(100)); //greatThan
+        assertThat(totalPrice,greaterThan(netPrice)); // another way of using greater than
     }
 }
