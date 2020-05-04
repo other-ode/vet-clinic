@@ -20,11 +20,15 @@ public class PetHotel {
 
     public void feedTheGuests() {
         for (Pet pet : getPets()) {
-            if (pet.getBreed() == Breed.Cat) {
-                pet.feed(10 * pet.getWeightInKilos(), PetFood.KittyKat);
-            } else if (pet.getBreed() == Breed.Dog) {
-                pet.feed(20 * pet.getWeightInKilos(), PetFood.FidosFood);
-            }
+            feed(pet);
+        }
+    }
+
+    private void feed(Pet pet) {
+        if (pet.getBreed() == Breed.Cat) {
+            pet.feed(10 * pet.getWeightInKilos(), PetFood.KittyKat);
+        } else if (pet.getBreed() == Breed.Dog) {
+            pet.feed(20 * pet.getWeightInKilos(), PetFood.FidosFood);
         }
     }
 
